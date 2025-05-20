@@ -45,3 +45,8 @@ regions.forEach(region => {
     window.location.href = region.cityMap;
   });
 });
+
+map.on('click', function(e) {
+  // Для CRS.Simple координаты e.latlng соответствуют [y, x]
+  console.log('Координаты клика:', e.latlng);
+});
