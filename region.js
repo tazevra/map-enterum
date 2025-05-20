@@ -20,42 +20,32 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds); // fitBounds автоматически подгоняет изображение под размер экрана
 
 // Новые области города с координатами под изображение
-const areas = cityId === '2' ? [
+const areas = [
   {
-    name: 'Район 3',
-    forum: 'https://forum.example.com/3',
-    bounds: [[20, 20], [40, 40]]
+    name: 'Город А',
+    cityId: 1,
+    bounds: [[600, 400], [1800, 1600]]
   },
   {
-    name: 'Район 4',
-    forum: 'https://forum.example.com/4',
-    bounds: [[60, 60], [80, 80]]
-  }
-] : [
-  {
-    name: 'Район 1',
-    forum: 'https://forum.example.com/1',
-    bounds: [[10, 10], [30, 30]]
-  },
-  {
-    name: 'Район 2',
-    forum: 'https://forum.example.com/2',
-    bounds: [[60, 60], [80, 80]]
+    name: 'Город В',
+    cityId: 2,
+    bounds: [[2200, 2600], [3200, 3600]]
   }
 ];
 
 areas.forEach(area => {
-  const rect = L.rectangle(area.bounds, { color: '#2e8b57', weight: 2, fillOpacity: 0.2 });
+  const rect = L.rectangle(area.bounds, { color: '#3388ff', weight: 2, fillOpacity: 0.2 });
   rect.addTo(map);
   rect.on('mouseover', function(e) {
-    this.setStyle({ color: '#ff6347', fillOpacity: 0.4 });
+    this.setStyle({ color: 'orange', fillOpacity: 0.4 });
     this.bindTooltip(`<b>${area.name}</b>`, {sticky: true}).openTooltip();
   });
   rect.on('mouseout', function(e) {
-    this.setStyle({ color: '#2e8b57', fillOpacity: 0.2 });
+    this.setStyle({ color: '#3388ff', fillOpacity: 0.2 });
     this.closeTooltip();
   });
   rect.on('click', function() {
-    window.open(area.forum, '_blank');
+    // Переход на карту города
+    window.location.href = `city.html?city=${area.cityId}`;
   });
 });
