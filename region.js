@@ -17,7 +17,11 @@ const map = L.map('map', {
   maxBoundsViscosity: 1.0
 });
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
-map.fitBounds(imageBounds); // fitBounds автоматически подгоняет изображение под размер экрана
+// Масштабирование по ширине 4096px
+const mapWidth = 4096;
+const windowWidth = window.innerWidth;
+const zoomToFitWidth = Math.log2(windowWidth / mapWidth);
+map.setView([imageBounds[1][0] / 2, mapWidth / 2], zoomToFitWidth);
 
 // Новые области города с координатами под изображение
 const areas = [
