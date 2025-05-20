@@ -1,4 +1,4 @@
-// city.js — логика карты города
+// region.js — логика карты города
 // Используем изображение города как подложку
 const params = new URLSearchParams(window.location.search);
 const cityId = params.get('city') || '1';
@@ -17,7 +17,7 @@ const map = L.map('map', {
   maxBoundsViscosity: 1.0
 });
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
-map.fitBounds(imageBounds);
+map.fitBounds(imageBounds); // fitBounds автоматически подгоняет изображение под размер экрана
 
 // Новые области города с координатами под изображение
 const areas = cityId === '2' ? [

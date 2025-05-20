@@ -12,6 +12,7 @@ const map = L.map('map', {
 });
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
+//map.setZoom(0,); // Стартовое приближение (чем больше число, тем сильнее зум)
 
 // Новые регионы с координатами под изображение
 const regions = [
@@ -19,13 +20,13 @@ const regions = [
     name: 'Северный регион',
     cities: ['Город А', 'Город Б'],
     bounds: [[600, 400], [1800, 1600]], // Пример, подберите под вашу карту
-    cityMap: 'city.html?city=1'
+    cityMap: 'region.html?city=1'
   },
   {
     name: 'Южный регион',
     cities: ['Город В'],
     bounds: [[2200, 2600], [3200, 3600]], // Пример, подберите под вашу карту
-    cityMap: 'city.html?city=2'
+    cityMap: 'region.html?city=2'
   }
 ];
 
