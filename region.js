@@ -1,13 +1,19 @@
 // region.js — логика карты города
 // Используем изображение города как подложку
 const params = new URLSearchParams(window.location.search);
-const cityId = params.get('city') || '1';
+const regionId = params.get('region') || '1';
 const border = 15;
-let imageUrl = 'IMG/city1.webp';
+let imageUrl = 'IMG/region1.jpg';
 let imageBounds = [[0,0],[1943,4096]];
-if (cityId === '2') {
-  imageUrl = 'IMG/region1.jpg';
-  imageBounds = [[0,0],[1943,4096]];
+if (regionId === '2') {
+  imageUrl = 'IMG/region2.webp';
+  imageBounds = [[0,0],[2924,4096]];
+} else if (regionId === '3') {
+  imageUrl = 'IMG/region3.webp';
+  imageBounds = [[0,0],[4096,4096]];
+} else if (regionId === '4') {
+  imageUrl = 'IMG/region4.webp';
+  imageBounds = [[0,0],[4096,4096]];
 }
 const map = L.map('map', {
   crs: L.CRS.Simple,
@@ -24,7 +30,7 @@ const zoomToFitWidth = Math.log2(windowWidth / mapWidth);
 map.setView([imageBounds[1][0] / 2, mapWidth / 2], zoomToFitWidth);
 
 // Новые области города с координатами под изображение
-const areas = [
+const areas = regionId === '1' ? [
   {
     name: 'Город А',
     cityId: 1,
@@ -33,7 +39,8 @@ const areas = [
       [880, 680], [688, 836], [508, 1208], [596, 1400], [796, 1648], [916, 1704], [988, 1684], [1096, 1584], [1160, 1460], 
       [1260, 1208], [1192, 1020]
     ]
-  },
+  }
+] : regionId === '2' ? [
   {
     name: 'Город В',
     cityId: 2,
@@ -42,7 +49,8 @@ const areas = [
       [1692, 572], [1796, 702], [1812, 788], [1802, 864], [1692, 988], [1558, 928], [1518, 768], [1534, 662], [1574, 602], 
       [1650, 574]
     ]
-  },
+  }
+] : regionId === '3' ? [
   {
     name: 'Город С',
     cityId: 3,
@@ -52,7 +60,16 @@ const areas = [
       [707, 3510], [713, 3408], [694, 3304], [648, 3209], [469, 3161], [383, 3290], [318, 3287]
     ]
   }
-];
+] : regionId === '4' ? [
+  {
+    name: 'Корзус',
+    cityId: 4,
+    // Многоугольник для Корзуса
+    polygon: [
+      [100, 200], [150, 250], [200, 300], [250, 350], [300, 400], [350, 450], [400, 500], [450, 550], [500, 600]
+    ]
+  }
+] : [];
 
 areas.forEach(area => {
   let shape;
