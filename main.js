@@ -64,12 +64,23 @@ const regions = [
   },
   {
     name: 'КПП Корзус-Юнион', // Название города (будет крупно в подсказке)
-    location: 'Нейтральные земли', // Название региона (будет выделено цветом)
+    location: 'Неизведанные земли', // Название региона (будет выделено цветом)
     locationColor: '#E3E8DC', // Цвет для названия региона Нейтральные земли (#E3E8DC)
     desc: 'Западный город, окружённый горами и лесами.', // Описание (любой текст)
-    forum: 'https://forum.example.com/ido',
+    forum: 'https://enterum.ru/index.php?threads/kpp-junion-aramidis.1175/unread',
     polygon: [
       [2360, 1730], [2450, 1830], [2114, 2198], [2006, 2110]
+    ]
+  },
+    {
+    name: 'Джию-Мура', // Название города (будет крупно в подсказке)
+    location: 'Независимые поселения Арамидиса', // Название региона (будет выделено цветом)
+    locationColor: '#D680FF', // Цвет для названия региона Нейтральные поселения (#D680FF)
+    desc: 'Джию-Мура ("Свободная Деревня") — поселение беженцев из Аргадара на берегу Волчьей Реки. Богатые земли и удачное расположение на торговом пути Иронхолд–Игридас сделали её процветающим купеческим узлом. После конфликта с баронами деревня отстояла независимость под защитой Драконьего Порядка. Теперь это вольное поселение с бурной историей и большими возможностями.', // Описание (любой текст)
+    forum: 'https://enterum.ru/index.php?threads/dzhiju-mura.1108/post-40691',
+    polygon: [
+      [2946, 965], [2958, 992], [2954, 1028], [2943, 1056], [2920, 1073], [2903, 1062], [2896, 1026], [2894, 991], 
+      [2909, 954], [2924, 936]
     ]
   },
 ];
@@ -88,7 +99,7 @@ regions.forEach(region => {
         <div style="font-weight:bold; font-size:1.3em; color:#fff; margin-bottom:6px;">${region.name}</div>
         <hr style="margin:6px 0 8px 0; border:none; border-top:1.5px solid #484848;"/>
         <div style="margin-bottom:8px; font-size:1.08em; color:#9d9d9d;">
-          <span style="font-weight:bold; color:#9d9d9d;">Локация: </span>
+          <span style="font-weight:bold; color:#9d9d9d;">Регион: </span>
           <span style="color:${region.locationColor || '#3388ff'}; font-weight:bold;">${region.location || '—'}</span>
         </div>
         <div style="font-size:1em; color:#9d9d9d; white-space:pre-line;">${region.desc || ''}</div>

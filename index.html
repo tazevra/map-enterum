@@ -6,17 +6,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
+    body {
+      background: #222222;
+    }
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 56px;
+      background: #363636;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 8px #0002;
+      justify-content: space-between;
+    }
+    #navbar .logo {
+      height: 40px;
+      margin-left: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .navbar-title {
+      flex: 1;
+      text-align: center;
+      color: #fff;
+      font-size: 1.25em;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+    .navbar-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1em;
+      font-weight: 500;
+      margin-right: 32px;
+      background: #484848;
+      padding: 8px 18px;
+      border-radius: 8px;
+      transition: background 0.2s;
+      box-shadow: 0 1px 4px #0002;
+      display: flex;
+      align-items: center;
+    }
+    .navbar-link:hover {
+      background: #5a5a5a;
+    }
     #map {
       height: 100vh;
       box-sizing: border-box;
       border: 15px solid #fff;
-      background: #fff;
+      background: #222222;
+      margin-top: 56px;
     }
     .region-hover { fill: orange !important; }
     .leaflet-tooltip .city-list { font-size: 0.9em; color: #555; }
   </style>
 </head>
 <body>
+  <div id="navbar">
+    <a href="https://enterum.ru/" target="_blank" style="display:flex;align-items:center;height:100%;">
+      <img src="IMG/Enterum_Logo.png" alt="Enterum" class="logo" />
+    </a>
+    <div class="navbar-title">Карта Энтерума</div>
+    <a href="https://enterum.ru/" target="_blank" class="navbar-link">Вернуться на форум</a>
+  </div>
   <div id="map"></div>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="main.js"></script>
