@@ -58,12 +58,15 @@
     #map {
       height: 100vh;
       box-sizing: border-box;
-      border: 15px solid #fff;
+      /* border: 15px solid #fff; */
       background: #222222;
       margin-top: 56px;
     }
     .region-hover { fill: orange !important; }
     .leaflet-tooltip .city-list { font-size: 0.9em; color: #555; }
+    .leaflet-top.leaflet-left {
+      top: 60px !important; /* 56px (панель) + 16px отступ */
+    }
   </style>
 </head>
 <body>
