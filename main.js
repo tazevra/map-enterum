@@ -95,8 +95,8 @@ regions.forEach(region => {
     // 3. Локация (region.location) — цвет задаётся через region.locationColor
     // 4. Описание (region.desc) — просто текст
     const tooltipHtml = `
-      <div style="padding:12px 18px; background:#222222; border-radius:18px; box-shadow:0 2px 12px #0002; min-width:200px; border:2px solid #8EEB00;">
-        <div style="font-weight:bold; font-size:1.3em; color:#fff; margin-bottom:6px;">${region.name}</div>
+      <div style="padding:12px 18px; background:#222222; border-radius:5px; box-shadow:0 2px 12px #0002; min-width:230px; border:3px solid #00A6FF;">
+        <div style="font-weight:bold; font-size:1.5em; color:#fff; margin-bottom:6px;">${region.name}</div>
         <hr style="margin:6px 0 8px 0; border:none; border-top:1.5px solid #484848;"/>
         <div style="margin-bottom:8px; font-size:1.08em; color:#9d9d9d;">
           <span style="font-weight:bold; color:#9d9d9d;">Регион: </span>
