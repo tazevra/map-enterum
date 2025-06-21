@@ -429,7 +429,7 @@ regions.forEach(region => {
     this.closeTooltip();
   });
   shape.on('click', function() {
-    window.open(region.forum, '_blank');
+    window.location.href = region.forum;
   });
 });
 
